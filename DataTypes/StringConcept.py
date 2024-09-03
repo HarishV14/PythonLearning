@@ -37,3 +37,31 @@ print('hello \\ with \n new line and with \t tab and qoutes \' and \"')
 
 print(m[0:3])  #it mention substring in python using the slice operator
 
+
+
+query = 'user=pilgrim&database=master&password=PapayaWhip'
+a_list = query.split('&') 
+print(a_list)
+print("-------------------------------------------------------------")
+a_list_of_lists = [v.split('=', 1) for v in a_list if '=' in v] 
+print(a_list_of_lists)
+
+print("-------------------------------------------------------------")
+a_dic=dict(a_list_of_lists)
+print(a_dic)
+
+print("-------------------------------------------------------------")
+
+by=b'abcd\x65'
+print(by)
+print(type(by))
+by+b'\x66'
+print(by)
+print(by[0])
+
+print("------------------------------------------------------------")
+a_string = '深入 Python' 
+by = a_string.encode('utf-8')  #here we can mentiont the encoding type like utf-16...32 etc and big5 
+
+print(by,type(by))
+
