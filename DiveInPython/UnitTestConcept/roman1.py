@@ -1,3 +1,6 @@
+class OutOfRangeError(ValueError):  pass
+class nonIntergerError(ValueError): pass
+
 roman_numeral_map = (('M',  1000),
                      ('CM', 900),
                      ('D',  500),
@@ -14,13 +17,21 @@ roman_numeral_map = (('M',  1000),
 
 def to_roman(n):
     '''convert integer to Roman numeral'''
+
+    print(f"Checking value: {n}")  
+    if n <=0 or n > 782:
+        raise OutOfRangeError('number out of range (must be 1..782)')
+    
+    if not isinstance(n,int):
+        raise nonIntergerError('number should be only int')
+
     result = ''
     for numeral, integer in roman_numeral_map:
-        print(integer,"at entry")
-        while n >= integer:                     
+        while n >= integer:
             result += numeral
             n -= integer
-            print('subtracting {0} from input, adding {1} to output'.format(integer, numeral))
     return result
 
-print(to_roman(1012))
+
+print("hello")
+# print(to_roman(1012))
